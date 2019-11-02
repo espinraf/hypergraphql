@@ -1,0 +1,25 @@
+type __Context {
+    Employee:       _@href(iri: "http://miniswp.tech/techtalk/cv#employee")
+    name:           _@href(iri: "http://miniswp.tech/techtalk/cv#name")
+    address:        _@href(iri: "http://miniswp.tech/techtalk/cv#address")
+    mobil:          _@href(iri: "http://miniswp.tech/techtalk/cv#mobil")
+    workedAt:       _@href(iri: "http://miniswp.tech/techtalk/cv#workedAt")
+    worksAt:        _@href(iri: "http://miniswp.tech/techtalk/cv#worksAt")
+    Company:        _@href(iri: "http://miniswp.tech/techtalk/cv#company")
+    hasCompetence:  _@href(iri: "http://miniswp.tech/techtalk/cv#hasCompetence")
+    Product:        _@href(iri: "http://miniswp.tech/techtalk/cv#product")
+}
+
+type Employee @service(id:"graphDB-sparql") {
+    name: String @service(id:"graphDB-sparql")
+    address: String @service(id:"graphDB-sparql")
+    mobil: String @service(id:"graphDB-sparql")
+    workedAt: [Company] @service(id:"graphDB-sparql")
+    worksAt: [Company] @service(id:"graphDB-sparql")
+    hasCompetence: [Product] @service(id:"graphDB-sparql")
+}
+
+type Product @service(id:"graphDB-sparql"){}
+
+type Company @service(id:"graphDB-sparql"){}
+

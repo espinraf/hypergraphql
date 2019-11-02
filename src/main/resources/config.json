@@ -1,0 +1,27 @@
+{
+    "name": "hgql-example-with-sparql",
+    "schema": "gql/schema-champ.graphql",
+    "server": {
+        "port": 8080,
+        "graphql": "/graphql",
+        "graphiql": "/graphiql"
+    },
+    "services": [
+        {
+            "id": "graphDB-sparql",
+            "type": "SPARQLEndpointService",
+            "url": "http://localhost:7200/repositories/champowl",
+            "graph": "",
+            "user": "",
+            "password": ""
+        },
+        {
+            "id": "graphDB-sparql1",
+            "type": "SPARQLEndpointService",
+            "url": "http://localhost:7200/repositories/mallorca",
+            "graph": "",
+            "user": "",
+            "password": ""
+        }
+    ]
+}

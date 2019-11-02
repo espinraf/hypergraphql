@@ -1,0 +1,81 @@
+type __Context {
+    Part:       _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#Part")
+    Revision:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#Revision")
+    description:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#description")
+    masterSystem:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#masterSystem")
+    objectId:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#objectId")
+    objectType:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#objectType")
+    valid:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#valid")
+
+    XRChangelog:       _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#XRChangelog")
+
+    XRChangelogEvent:       _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#XRChangelogEvent")
+    note:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#note")
+    reason:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#reason")
+    status:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#status")
+    timestamp:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#timestamp")
+
+    Author:       _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#Author")
+    system:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#system")
+    userId:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#userId")
+    userName:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#userName")
+
+    Brand:       _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#Brand")
+    BrandRole:       _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#BrandRole")
+
+    hasAuthor:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#hasAuthor")
+    hasBrand:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#hasAuthor")
+    hasBrandRole:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#hasAuthor")
+    hasXRChangelog:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#hasXRChangelog")
+    hasXRChangelogEvent:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#hasXRChangelogEvent")
+    isLinkedTo:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#isLinkedTo")
+    isVisibleFor:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#isVisibleFor")
+
+}
+
+type Part @service(id:"graphDB-sparql") {
+    Revision:  String @service(id:"graphDB-sparql")
+    description:   String @service(id:"graphDB-sparql")
+    masterSystem:   String @service(id:"graphDB-sparql")
+    objectId:   String @service(id:"graphDB-sparql")
+    objectType:   String @service(id:"graphDB-sparql")
+    valid:   String @service(id:"graphDB-sparql")
+
+    hasXRChangelog: [XRChangelog] @service(id:"graphDB-sparql")
+    hasBrandRole: BrandRole @service(id:"graphDB-sparql")
+    hasBrand: Brand @service(id:"graphDB-sparql")
+    isVisibleFor: [Brand] @service(id:"graphDB-sparql")
+    isLinkedTo: Part @service(id:"graphDB-sparql")
+
+}
+
+
+type XRChangelog @service(id:"graphDB-sparql"){
+    hasXRChangelogEvent: [XRChangelogEvent] @service(id:"graphDB-sparql")
+
+}
+
+type XRChangelogEvent @service(id:"graphDB-sparql"){
+    note:   String @service(id:"graphDB-sparql")
+    reason:   String @service(id:"graphDB-sparql")
+    status:   String @service(id:"graphDB-sparql")
+    timestamp:  String @service(id:"graphDB-sparql")
+
+    hasAuthor:   Author @service(id:"graphDB-sparql")
+    hasBrand:   Brand @service(id:"graphDB-sparql")
+}
+
+type Author @service(id:"graphDB-sparql"){
+    system:   String @service(id:"graphDB-sparql")
+    userId:   String @service(id:"graphDB-sparql")
+    userName:  String @service(id:"graphDB-sparql")
+
+}
+
+type Brand @service(id:"graphDB-sparql"){
+
+}
+
+type BrandRole @service(id:"graphDB-sparql"){
+
+}
