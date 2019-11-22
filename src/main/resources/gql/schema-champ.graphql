@@ -1,13 +1,23 @@
 type __Context {
-    Part:       _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#Part")
+    PartLabels: _@href(iri: "http://www.w3.org/2002/07/owl#DatatypeProperty")
+    subProperty: _@href(iri: "http://www.w3.org/2000/01/rdf-schema#subPropertyOf")
+    label: _@href(iri: "http://www.w3.org/2000/01/rdf-schema#label")
+
+    PartMANTB:       _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#PartMANTB")
+    PartNavistar:       _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#PartNavistar")
+    PartScania:       _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#PartScania")
+
     Revision:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#Revision")
-    description:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#description")
+    Description:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#Description")
     masterSystem:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#masterSystem")
-    objectId:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#objectId")
+    Object_ID:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#Object_ID")
     objectType:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#objectType")
     valid:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#valid")
 
     XRChangelog:       _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#XRChangelog")
+    XRReason_ID:       _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#XRReason-ID")
+    XRReasonDescription:       _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#XRReasonDescription")
+    XRStatus:       _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#XRStatus")
 
     XRChangelogEvent:       _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#XRChangelogEvent")
     note:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#note")
@@ -23,9 +33,14 @@ type __Context {
     Brand:       _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#Brand")
     BrandRole:       _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#BrandRole")
 
+
+    hasPartMANTB:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#hasPart")
+    hasPartNavistar:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#hasPart")
+    hasPartScania:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#hasPart")
+
     hasAuthor:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#hasAuthor")
-    hasBrand:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#hasAuthor")
-    hasBrandRole:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#hasAuthor")
+    hasBrand:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#hasBrand")
+    hasBrandRole:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#hasBrandRole")
     hasXRChangelog:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#hasXRChangelog")
     hasXRChangelogEvent:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#hasXRChangelogEvent")
     isLinkedTo:   _@href(iri: "http://sdp.collaborationlayer-traton.com/champ#isLinkedTo")
@@ -33,25 +48,61 @@ type __Context {
 
 }
 
-type Part @service(id:"graphDB-sparql") {
+type PartLabelsProperty @service(id:"graphDB-sparql") {}
+
+type PartLabels @service(id:"graphDB-sparql") {
+    label: [String] @service(id:"graphDB-sparql")
+}
+
+type PartMANTB @service(id:"graphDB-sparql") {
     Revision:  String @service(id:"graphDB-sparql")
-    description:   String @service(id:"graphDB-sparql")
+    Description:   String @service(id:"graphDB-sparql")
     masterSystem:   String @service(id:"graphDB-sparql")
-    objectId:   String @service(id:"graphDB-sparql")
+    Object_ID:   String @service(id:"graphDB-sparql")
     objectType:   String @service(id:"graphDB-sparql")
     valid:   String @service(id:"graphDB-sparql")
 
-    hasXRChangelog: [XRChangelog] @service(id:"graphDB-sparql")
     hasBrandRole: BrandRole @service(id:"graphDB-sparql")
     hasBrand: Brand @service(id:"graphDB-sparql")
-    isVisibleFor: [Brand] @service(id:"graphDB-sparql")
-    isLinkedTo: Part @service(id:"graphDB-sparql")
+
+}
+
+type PartNavistar @service(id:"graphDB-sparql") {
+    Revision:  String @service(id:"graphDB-sparql")
+    Description:   String @service(id:"graphDB-sparql")
+    masterSystem:   String @service(id:"graphDB-sparql")
+    Object_ID:   String @service(id:"graphDB-sparql")
+    objectType:   String @service(id:"graphDB-sparql")
+    valid:   String @service(id:"graphDB-sparql")
+
+    hasBrandRole: BrandRole @service(id:"graphDB-sparql")
+    hasBrand: Brand @service(id:"graphDB-sparql")
+
+}
+
+type PartScania @service(id:"graphDB-sparql") {
+    Revision:  String @service(id:"graphDB-sparql")
+    Description:   String @service(id:"graphDB-sparql")
+    masterSystem:   String @service(id:"graphDB-sparql")
+    Object_ID:   String @service(id:"graphDB-sparql")
+    objectType:   String @service(id:"graphDB-sparql")
+    valid:   String @service(id:"graphDB-sparql")
+
+    hasBrandRole: BrandRole @service(id:"graphDB-sparql")
+    hasBrand: Brand @service(id:"graphDB-sparql")
 
 }
 
 
 type XRChangelog @service(id:"graphDB-sparql"){
+    XRReason_ID: String      @service(id:"graphDB-sparql")
+    XRReasonDescription: String      @service(id:"graphDB-sparql")
+    XRStatus: String  @service(id:"graphDB-sparql")
     hasXRChangelogEvent: [XRChangelogEvent] @service(id:"graphDB-sparql")
+
+    hasPartMANTB: [PartMANTB] @service(id:"graphDB-sparql")
+    hasPartNavistar: [PartNavistar] @service(id:"graphDB-sparql")
+    hasPartScania: [PartScania] @service(id:"graphDB-sparql")
 
 }
 
